@@ -1,0 +1,188 @@
+.pledge {
+  width: 100%;
+  padding: 2rem 0;
+  border: 1px solid hsla(176, 50%, 47%, 0.353);
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  gap: 2rem;
+  
+  & p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: var(--dark-gray);
+  }
+  &__title,
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    & h3 {
+      font-size: 2rem;
+    }
+  }
+  &__footer {
+    & p {
+      font-size: 3rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .6rem;
+      color: var(--black);
+      & span {
+        font-size: 1.6rem;
+        color: var(--moderate-cyan);
+      }
+    }
+    &-btn {
+      background-color: red;
+    }
+  } 
+
+  &__modal {
+    &--input {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      border: 1px solid var(--moderate-cyan);
+      position: relative;
+      &-inside {
+        width: 1.2rem;
+        height: 1.2rem;
+        position: absolute;
+        background-color: var(--moderate-cyan);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        display: none;
+      }
+    }
+    .pledge__modal--radio {
+      display: none;
+    }
+    .pledge__modal--radio:checked ~ .pledge__modal--input > .pledge__modal--input-inside {
+      display: block;
+    }
+    & label {
+      padding: 0 2rem 2rem;
+      display: grid;
+      grid-template-columns: 2rem .7fr .3fr;
+      grid-template-rows: 2rem 1fr;
+      align-items: center;
+      grid-row-gap: 1rem;
+      cursor: pointer;
+      @media only screen and (max-width: $bp-medium){
+        grid-template-columns: 5rem .7fr .3fr;
+        grid-template-rows: 2rem 1fr 3rem;
+        grid-row-gap: 3rem;
+      }
+      .pledge_desc {
+        grid-column: 2 / 4;
+        @media only screen and (max-width: $bp-medium){
+          grid-column: 1 / 4;
+          padding: 0;
+        }
+      }
+      .pledge_title_amount {
+        display: flex;
+        align-items: center;
+        @media only screen and (max-width: $bp-medium){
+          grid-column: 2 / 4;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        & h3 {
+          transition: all .2s ease-in-out;
+          font-size: 1.4rem;
+          @media only screen and (max-width: $bp-medium){
+            padding: 0;
+          }
+        }
+      }
+      .pledge_left {
+        grid-column: 3;
+        grid-row: 1;
+        align-self: center;
+        justify-self: end;
+        color: var(--black);
+        font-weight: 600;
+        font-size: 1.8rem;
+        @media only screen and (max-width: $bp-medium){
+          grid-column: 1;
+          grid-row: 3;
+          display: flex;
+          align-items: center;
+        }
+        & span {
+          font-weight: 300;
+          margin-left: .4rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    & label:hover > .pledge_title_amount h3{
+      color: var(--moderate-cyan) !important;
+    }
+    &--action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 1rem .3rem;
+      border-top: 3px solid var(--light-gray);
+      @media only screen and (max-width: $bp-medium){
+        flex-direction: column;
+        gap: 2rem;
+      }
+      &_btn {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        &-input {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid var(--moderate-cyan);
+          padding: 1rem 2.4rem;
+          border-radius: 5rem;
+          gap: .6rem;
+          & input {
+            width: 5rem;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--black);
+          }
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          & input:focus {
+            outline: none;
+          }
+          ::placeholder {
+            color: var(--moderate-cyan);
+            opacity: 1; /* Firefox */
+          }
+          &_msg {
+            color: red !important;
+            position: absolute;
+            bottom: -2rem;
+            font-size: .9rem !important;
+          }
+        }
+        & button {
+          padding: 1.4rem 2rem;
+        }
+      }
+    }
+  }
+}
+
+.padding {
+  padding: 0 2rem;
+}

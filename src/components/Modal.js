@@ -25,16 +25,7 @@ function Modal({children, isOpen, handleClose, noCloseBtn}) {
     gap: '2rem',
     position: 'relative'
   }
-
-  const textTitle = {
-    fontSize: '2.2rem'
-  }
-
-  const textDescription = {
-    fontSize: '1.4rem',
-    color: 'hsl(0, 0%, 48%)'
-  }
-
+  
   const closeIcon = {
     position: 'absolute',
     width: '2rem',
@@ -43,12 +34,10 @@ function Modal({children, isOpen, handleClose, noCloseBtn}) {
     cursor: 'pointer'
   }
 
-
-
   if(!isOpen) return null
   return (
     <div style={overlay}>
-      <div style={content}>
+      <div style={content} className='modal__content'>
         {noCloseBtn ? '' : <img style={closeIcon} src={iconCloseModal} alt="" onClick={handleClose}/>}
         {children}
       </div>
