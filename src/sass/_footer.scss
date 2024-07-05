@@ -1,0 +1,17 @@
+.footer {
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  & p {
+    color: var(--dark-gray);
+    font-size: 1.4rem;
+    & a:link,
+    & a:visited {
+      color: var(--dark-cyan);
+      text-decoration: none;
+    }
+  }
+}
+

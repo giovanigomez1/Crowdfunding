@@ -8,6 +8,9 @@ import Pledge from './components/Pledge'
 import Modal from './components/Modal'
 import ProgressBar from './components/ProgressBar'
 import Completed from './components/Completed'
+import Footer from './components/Footer'
+
+
 
 
 function App() {
@@ -39,6 +42,7 @@ function App() {
 
   function handleCompleted() {
     setSuccess(false)
+    window.scrollTo({top: 80, behavior: 'smooth'})
   }
 
   function handleOpen(title) {
@@ -190,6 +194,7 @@ function App() {
           <Completed handleCompleted={handleCompleted}/>
         </Modal>    
       </Main>
+      <Footer />
     </>
   )
 }
